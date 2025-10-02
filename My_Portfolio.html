@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paing Lin Htike - UI/UX Designer & AI Engineer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #000;
+            --secondary: #fff;
+            --accent: #ffffff;
+            --dark: #121212;
+            --light: #f8f9fa;
+            --gradient-start: #000;
+            --gradient-end: #333;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        .navbar {
+            background-color: var(--dark) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--accent) !important;
+        }
+        
+        .nav-link {
+            color: var(--light) !important;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 1rem !important;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent) !important;
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 3px;
+            background-color: var(--accent);
+            border-radius: 3px;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--dark);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline-light {
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-light:hover {
+            background-color: var(--accent);
+            color: var(--dark);
+            transform: translateY(-2px);
+        }
+        
+        .hero-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            z-index: 2;
+            position: relative;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            color: var(--light);
+        }
+        
+        .hero-text {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+        }
+        
+        .hero-image {
+            position: relative;
+            z-index: 2;
+            transform: rotate(-5deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            overflow: hidden;
+            max-width: 350px;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .social-icon {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--accent);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--accent);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--accent);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        .section {
+            padding: 5rem 2rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--accent);
+            position: relative;
+            display: inline-block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+            border-radius: 3px;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .about-image {
+            flex: 0 0 300px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .skills {
+            margin-top: 2rem;
+        }
+        
+        .skills-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        
+        .skill-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .skill-icon {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--accent);
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-icon:hover {
+            background-color: var(--accent);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        .services-section {
+            background-color: var(--dark);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-card {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(51, 51, 51, 0.5));
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        
+        .service-description {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+        
+        .projects-section {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+        }
+        
+        .projects-container {
+            margin-top: 3rem;
+            position: relative;
+        }
+        
+        .projects-scroll {
+            display: flex;
+            gap: 2rem;
+            padding: 1rem 0;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+        
+        .projects-scroll::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+        
+        .project-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            flex: 0 0 320px; /* Fixed width for horizontal scroll */
+            min-width: 320px;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+        
+        .project-category {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 1rem;
+        }
+        
+        .project-description {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .project-tag {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .scroll-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .scroll-btn {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--accent);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .scroll-btn:hover {
+            background-color: var(--accent);
+            color: var(--dark);
+            transform: translateY(-2px);
+        }
+        
+        .contact-section {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-info {
+            flex: 0 0 300px;
+        }
+        
+        .contact-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            color: var(--accent);
+            font-size: 1.5rem;
+            min-width: 25px;
+        }
+        
+        .contact-text {
+            flex: 1;
+        }
+        
+        .contact-text h5 {
+            margin-bottom: 0.25rem;
+            color: var(--accent);
+        }
+        
+        .contact-text p {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-label {
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .footer {
+            background-color: var(--dark);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem 2rem;
+            text-align: center;
+        }
+        
+        .footer-text {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.875rem;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                flex: 0 0 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .contact-info {
+                flex: 0 0 auto;
+                max-width: 100%;
+            }
+            
+            .project-card {
+                flex: 0 0 280px;
+                min-width: 280px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0.75rem 1rem;
+            }
+            
+            .hero-section {
+                padding: 3rem 1rem;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+            
+            .section {
+                padding: 3rem 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-card {
+                flex: 0 0 250px;
+                min-width: 250px;
+            }
+            
+            .contact-form {
+                flex: 0 0 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.75rem;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .project-card {
+                flex: 0 0 220px;
+                min-width: 220px;
+            }
+        }
+        
+        /* Animation for cards */
+        .animate-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .animate-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--dark);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <!-- <a class="navbar-brand" href="#">S</a> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="hero-title">Hi, I'm Paing Lin Htike</h1>
+                    <h2 class="hero-subtitle">UI/UX Designer, Web Designer & AI Engineer</h2>
+                    <p class="hero-text">
+                        I create intuitive digital experiences that blend beautiful design with intelligent functionality. 
+                        From user-centered interfaces to AI-powered solutions, I transform complex problems into elegant solutions.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#projects" class="btn btn-primary">My Projects</a>
+                        <a href="#" class="btn btn-outline-light">Download CV</a>
+                    </div>
+                    <div class="social-icons mt-4">
+                        <a href="https://www.facebook.com/share/1E9LBZDjan/" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/aerariko107?igsh=MW01enNoMTJyMDNpdg==" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="https://github.com/PaingLinHtike" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <div class="hero-image">
+                        <img src="C:\1.My Files\Paing Lin Htike\Web Design\Exercise Files - Figma Essentials (Basic)/Mine-pica-removebg-preview.png" alt="Paing Lin Htike">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="C:\1.My Files\Paing Lin Htike\Web Design\Exercise Files - Figma Essentials (Basic)/Mine-pica-removebg-preview.png" alt="Paing Lin Htike">
+                </div>
+                <div class="about-text">
+                    <p>
+                        I'm Paing Lin Htike, a multidisciplinary designer and engineer passionate about creating meaningful digital experiences. With expertise spanning UI/UX design, web development, and AI engineering, I bridge the gap between aesthetics and intelligence.
+                    </p>
+                    <p>
+                        My approach combines user-centered design principles with cutting-edge AI technologies to build solutions that are not only beautiful but also smart and adaptive. I believe that the best digital experiences are those that understand and anticipate user needs through thoughtful design and intelligent systems.
+                    </p>
+                    <p>
+                        Whether I'm crafting intuitive interfaces, developing responsive websites, or implementing AI algorithms, I focus on creating solutions that solve real problems and deliver exceptional user experiences.
+                    </p>
+                    <div class="skills">
+                        <h3 class="skills-title">Expertise</h3>
+                        <div class="skill-icons">
+                            <div class="skill-icon" title="UI/UX Design">UI</div>
+                            <div class="skill-icon" title="Web Development">WD</div>
+                            <div class="skill-icon" title="AI Engineering">AI</div>
+                            <div class="skill-icon" title="Figma">Fg</div>
+                            <div class="skill-icon" title="React">Rt</div>
+                            <div class="skill-icon" title="Python">Py</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section services-section">
+        <div class="container">
+            <h2 class="section-title">Services</h2>
+            <p class="text-center mb-5" style="color: rgba(255, 255, 255, 0.8);">Transforming ideas into intelligent digital experiences</p>
+            <div class="services-grid">
+                <div class="service-card animate-in">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="service-title">UI/UX Design</h3>
+                    <p class="service-description">
+                        Creating intuitive and visually appealing interfaces that prioritize user needs and business goals.
+                    </p>
+                </div>
+                <div class="service-card animate-in">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="service-title">Web Design & Development</h3>
+                    <p class="service-description">
+                        Building responsive, accessible, and performant websites that work seamlessly across all devices.
+                    </p>
+                </div>
+                <div class="service-card animate-in">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="service-title">AI Engineering</h3>
+                    <p class="service-description">
+                        Developing intelligent systems and machine learning solutions that enhance user experiences and automate complex tasks.
+                    </p>
+                </div>
+                <div class="service-card animate-in">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="service-title">AI-Powered Design</h3>
+                    <p class="service-description">
+                        Integrating artificial intelligence into design processes to create adaptive, personalized user experiences.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects-section">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <p class="text-center mb-4" style="color: rgba(255, 255, 255, 0.8);">Discover projects that showcase my expertise in design and AI engineering</p>
+            <div class="projects-container">
+                <div class="projects-scroll" id="projectsScroll">
+                    <div class="project-card animate-in">
+                        <div class="project-image">
+                            <img src="https://placehold.co/400x300/333/fff?text=AI+Healthcare+App" alt="AI Healthcare App">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">AI Healthcare Assistant</h3>
+                            <p class="project-category">AI Engineering & Mobile App</p>
+                            <p class="project-description">
+                                An AI-powered healthcare application that uses machine learning to provide personalized health recommendations and symptom analysis.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">AI/ML</span>
+                                <span class="project-tag">Mobile</span>
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">TensorFlow</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card animate-in">
+                        <div class="project-image">
+                            <img src="https://placehold.co/400x300/333/fff?text=E-Commerce+Platform" alt="E-Commerce Platform">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Smart E-Commerce Platform</h3>
+                            <p class="project-category">Web Design & AI Integration</p>
+                            <p class="project-description">
+                                A responsive e-commerce platform with AI-driven product recommendations and personalized shopping experiences.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">Web Design</span>
+                                <span class="project-tag">React</span>
+                                <span class="project-tag">AI Integration</span>
+                                <span class="project-tag">Node.js</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card animate-in">
+                        <div class="project-image">
+                            <img src="https://placehold.co/400x300/333/fff?text=Design+System" alt="Design System">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">AI-Enhanced Design System</h3>
+                            <p class="project-category">UI/UX Design & AI</p>
+                            <p class="project-description">
+                                A comprehensive design system that leverages AI to automatically generate design variations and accessibility-compliant components.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">Design System</span>
+                                <span class="project-tag">Figma</span>
+                                <span class="project-tag">AI Automation</span>
+                                <span class="project-tag">UI/UX</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card animate-in">
+                        <div class="project-image">
+                            <img src="https://placehold.co/400x300/333/fff?text=Chatbot+Interface" alt="Chatbot Interface">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Intelligent Chatbot Interface</h3>
+                            <p class="project-category">AI & UI Design</p>
+                            <p class="project-description">
+                                A conversational AI interface designed for customer support with natural language processing and intuitive user flows.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">NLP</span>
+                                <span class="project-tag">UI Design</span>
+                                <span class="project-tag">React</span>
+                                <span class="project-tag">Dialogflow</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card animate-in">
+                        <div class="project-image">
+                            <img src="https://placehold.co/400x300/333/fff?text=Data+Dashboard" alt="Data Dashboard">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">AI Analytics Dashboard</h3>
+                            <p class="project-category">Web Development & AI</p>
+                            <p class="project-description">
+                                A data visualization dashboard that uses machine learning to provide predictive insights and automated reporting.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">Data Viz</span>
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">D3.js</span>
+                                <span class="project-tag">ML</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card animate-in">
+                        <div class="project-image">
+                            <img src="https://placehold.co/400x300/333/fff?text=Mobile+App" alt="Mobile App">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Smart Finance App</h3>
+                            <p class="project-category">Mobile & AI Integration</p>
+                            <p class="project-description">
+                                A mobile finance application with AI-powered expense tracking and personalized budget recommendations.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">Mobile</span>
+                                <span class="project-tag">React Native</span>
+                                <span class="project-tag">AI</span>
+                                <span class="project-tag">Finance</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="scroll-buttons">
+                    <button class="scroll-btn" id="scrollLeft">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="scroll-btn" id="scrollRight">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title">Let's Create Something Amazing Together</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3 class="contact-title">Contact Information</h3>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h5>Email</h5>
+                            <p>plhcumaubin1010@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h5>Phone</h5>
+                            <p>+95 9 781 087 426</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h5>Location</h5>
+                            <p>Myanmar, Yangon, Htauk-Kyant</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h5>GitHub</h5>
+                            <a href="https://github.com/PaingLinHtike" style="text-decoration: none;"><p>https://github.com/PaingLinHtike</p></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="name" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" class="form-control" id="subject" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2021 Paing Lin Htike. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add active class to nav links on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        const animateElements = document.querySelectorAll('.animate-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        animateElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Scroll down button
+        document.querySelector('.scroll-down').addEventListener('click', function() {
+            window.scrollTo({
+                top: document.querySelector('#about').offsetTop - 80,
+                behavior: 'smooth'
+            });
+        });
+
+        // Projects horizontal scroll functionality
+        const projectsScroll = document.getElementById('projectsScroll');
+        const scrollLeftBtn = document.getElementById('scrollLeft');
+        const scrollRightBtn = document.getElementById('scrollRight');
+        
+        // Scroll right button
+        scrollRightBtn.addEventListener('click', () => {
+            projectsScroll.scrollBy({
+                left: 350,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Scroll left button
+        scrollLeftBtn.addEventListener('click', () => {
+            projectsScroll.scrollBy({
+                left: -350,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Mouse wheel scrolling for horizontal scroll
+        projectsScroll.addEventListener('wheel', (e) => {
+            if (e.deltaY !== 0) {
+                e.preventDefault();
+                projectsScroll.scrollBy({
+                    left: e.deltaY,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    </script>
+</body>
+</html>
