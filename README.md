@@ -59,7 +59,7 @@ This project highlights my skills, services, and projects in design and artifici
 
 ## 🌟 Live Demo
 
-🔗 [View Portfolio Website](https://painglinhtike.github.io/portfolio-website/) *(update with your GitHub Pages link)*
+🔗 [View Portfolio Website](https://painglinhtike.github.io/My-Portfolio/)
 
 ---
 
